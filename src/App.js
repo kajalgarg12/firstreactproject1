@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import React,{useState} from 'react'
 import './App.css';
 
 function App() {
+  const [number1,setNumber1]=useState();
+  const number2 =20;
+  const [result, setResult] = useState()
+  
+     function add() {
+       setResult(number1+number2);
+ }
+ function sub(){
+   setResult(number1-number2);
+ }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <div>
+           <h1>CALCULATOR</h1><br/>
+           <input type ="Number" value={number1} onChange={e=> setNumber1(+e.target.value)}/><br/>
+
+            <div className="buttons">
+           <button id="button1" onClick={add}>ADD</button><br/>
+           <button id="button2"  onClick={sub}>SUBTRACT</button>
+           </div>
+           <br/>
+           <h1>RESULT: {result}</h1>
+      
+        </div>   
     </div>
   );
 }
